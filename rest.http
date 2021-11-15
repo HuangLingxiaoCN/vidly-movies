@@ -1,0 +1,36 @@
+GET http://localhost:3000/api/genres
+
+###
+POST http://localhost:3000/api/genres
+Content-Type: application/json
+
+{
+  "name": "Sci-fi"
+}
+
+###
+POST http://localhost:3000/api/genres
+Content-Type: application/json
+
+{
+  "name": "Thriller"
+}
+
+###
+POST http://localhost:3000/api/genres
+Content-Type: application/json
+
+{
+  "name": "Action"
+}
+
+###
+PUT http://localhost:3000/api/genres/61927d419653f511cbfaae9f
+Content-Type: application/json
+
+{
+  "name": "Comedy"
+}
+
+###
+DELETE http://localhost:3000/api/genres/61927d439653f511cbfaaea1
