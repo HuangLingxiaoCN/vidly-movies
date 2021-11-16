@@ -4,10 +4,11 @@ require('dotenv').config();
 
 const app = express();
 const genres = require('./routes/genres');
+const customer = require('./routes/customer')
 
 app.use(express.json());
 app.use('/api/genres',genres);
-
+app.use('/api/customers',customer);
 
 mongoose.connect(process.env.DATABASE_URL)
   .then(() => console.log('Connected to MongoDB'))
