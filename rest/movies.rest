@@ -1,0 +1,41 @@
+###
+GET http://localhost:8080/api/movies
+
+###
+GET http://localhost:8080/api/movies/6195209b785ee4affdff4284
+
+###
+POST http://localhost:8080/api/movies
+Content-Type: application/json
+
+{
+  "title": "Star Wars",
+  "genreId": "6195207b785ee4affdff4277",
+  "numberInStock": 10,
+  "dailyRentalRate": 2
+}
+
+###
+POST http://localhost:8080/api/movies
+Content-Type: application/json
+
+{
+  "title": "Terminator",
+  "genreId": "6195207c785ee4affdff4279",
+  "numberInStock": 8,
+  "dailyRentalRate": 4
+}
+
+###
+PUT http://localhost:8080/api/movies/6195209b785ee4affdff4284
+Content-Type: application/json
+
+{
+  "title": "Star Wars",
+  "genreId": "6195207b785ee4affdff4277",
+  "numberInStock": 10,
+  "dailyRentalRate": 2
+}
+
+###
+DELETE http://localhost:8080/api/movies/6195209b785ee4affdff4284

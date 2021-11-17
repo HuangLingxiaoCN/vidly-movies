@@ -1,0 +1,22 @@
+###
+GET http://localhost:8080/api/customers
+
+###
+POST http://localhost:8080/api/customers
+content-type: application/json
+
+{
+  "isGold": true,
+  "name": "Kai",
+  "phone": 12345
+}
+
+###
+POST http://localhost:8080/api/customers
+content-type: application/json
+
+{
+  "isGold": false,
+  "name": "Jason",
+  "phone": 98765
+}

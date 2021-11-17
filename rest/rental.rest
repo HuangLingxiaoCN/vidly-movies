@@ -1,0 +1,41 @@
+GET http://localhost:8080/api/rentals
+
+###
+GET http://localhost:8080/api/rentals/6195735b5d441ec0a9783fcf
+
+###
+POST http://localhost:8080/api/rentals
+Content-Type: Application/json
+
+{
+  "customerId": "6195207e785ee4affdff427d",
+  "movieId": "619535905e217899ff7e0625",
+  "dateReturned": "2021-11-30",
+  "rentalFee": 10
+}
+
+###
+POST http://localhost:8080/api/rentals
+Content-Type: Application/json
+
+{
+  "customerId": "6195207e785ee4affdff427d",
+  "movieId": "619535905e217899ff7e0625",
+  "dateReturned": "2021-11-30",
+  "rentalFee": 10
+}
+
+###
+PUT http://localhost:8080/api/rentals/6195735b5d441ec0a9783fcf
+Content-Type: application/json
+
+{
+  "customerId": "6195207f785ee4affdff427f",
+  "movieId": "619574dfbfe6076c0c309402",
+  "dateOut": "2021-12-30",
+  "dateReturned": "2022-1-12",
+  "rentalFee": 30
+}
+
+###
+DELETE http://localhost:8080/api/rentals/619575cc2f1cf26f71083fcc
