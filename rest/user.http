@@ -1,0 +1,28 @@
+POST http://localhost:8080/api/users
+Content-Type: application/json
+
+{
+  "name": "Jason Hook",
+  "email": "jason@outlook.com",
+  "password": "password"
+}
+
+###
+POST http://localhost:8080/api/users
+Content-Type: application/json
+
+{
+  "name": "Hu Kai",
+  "email": "hukai@outlook.com",
+  "password": "password"
+}
+
+###
+POST http://localhost:8080/api/users
+Content-Type: application/json
+
+{
+  "name": "Kyle",
+  "email": "kyle@gmail.com",
+  "password": "password"
+}
