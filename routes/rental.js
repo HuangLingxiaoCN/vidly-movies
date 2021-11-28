@@ -1,5 +1,9 @@
 const express = require("express");
 const router = express.Router();
+const Fawn = require("fawn");
+const dotenv = require('dotenv').config().parsed;
+
+Fawn.init(dotenv.DATABASE_URL);
 
 const Customer = require("../models/customer");
 const Movie = require("../models/movie");
@@ -22,31 +26,51 @@ router.get("/:id", async function (req, res) {
 // Create one
 router.post("/", async function (req, res) {
   const customer = await Customer.findById(req.body.customerId);
+  if (!customer) return res.status(404).send("Not exist");
+
   const movie = await Movie.findById(req.body.movieId);
+  if (!movie) return res.status(404).send("Not exist");
+  if (movie.numberInStock === 0) return res.status(400).send("Out of stock");
 
   let rental = new Rental({
     customer: {
       name: customer.name,
-      isGold: customer.isGold,
       phone: customer.phone,
     },
     movie: {
       title: movie.title,
       dailyRentalRate: movie.dailyRentalRate,
     },
-    dateOut: req.body.dateOut,
     dateReturned: req.body.dateReturned,
     rentalFee: req.body.rentalFee,
   });
 
-  rental = await rental.save();
-  res.status(201).send(rental);
+  // using fawn to perform two phase commit transactions in mongoDB
+  try {
+    new Fawn.Task()
+      .save("rentals", rental)
+      .update(
+        "movies",
+        { _id: movie._id },
+        {
+          $inc: { numberInStock: -1 },
+        }
+      )
+      .run();
+
+    res.status(201).send(rental);
+  } catch (err) {
+    res.status(500).send("Something failed. ", err.message);
+  }
 });
 
 // Update one
 router.put("/:id", async function (req, res) {
   const customer = await Customer.findById(req.body.customerId);
+  if (!customer) return res.status(404).send("Not exist");
+
   const movie = await Movie.findById(req.body.movieId);
+  if (!movie) return res.status(404).send("Not exist");
 
   const rental = await Rental.findByIdAndUpdate(req.params.id, {
     customer: {
