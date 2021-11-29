@@ -1,7 +1,5 @@
 const _ = require("lodash"); // by convention we use _ for lodash
-const config = require('config');
 const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
 const express = require("express");
 const router = express.Router();
 
@@ -15,8 +13,7 @@ router.post("/", async function (req, res) {
   const passwordValid = await bcrypt.compare(req.body.password, user.password);
   if(!passwordValid) return res.status(400).send("Invalid email or password");
 
-  const token = jwt.sign({ _id: user._id }, config.get('jwtPrivateKey'));
-
+  const token = user.generateAuthToken();
   res.send(token);
 });
 

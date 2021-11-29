@@ -1,5 +1,7 @@
 const express = require('express');
 const router = express.Router();
+
+const auth = require('../middleware/auth');
 const { Genre } = require('../models/genre');
 
 // Get all
@@ -15,9 +17,8 @@ router.get("/:id", async function (req, res) {
   res.send(genre)
 });
 
-// Create one
-router.post("/", async function (req, res) {
-
+// Create one (auth as a middleware function executed before the route handler)
+router.post("/", auth, async function (req, res) {
   let genre = new Genre({
     name: req.body.name,
   });
