@@ -26,3 +26,7 @@ Content-Type: application/json
   "email": "kyle@gmail.com",
   "password": "password"
 }
+
+###
+GET http://localhost:8080/api/users/me
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWE0MjEzNTJhMGIxMjU4ZDExZmFhNDEiLCJpYXQiOjE2MzgxNDYzNTd9._kpjQoIbE1dF6cTPiJoUCrBlqLRL6zillXNZI0-k9G8

@@ -5,9 +5,16 @@ const bcrypt = require('bcrypt');
 const express = require("express");
 const router = express.Router();
 
+const auth = require('../middleware/auth');
 const { User } = require("../models/user");
 
-// Create
+// Get an user
+router.get('/me', auth, async (req, res) => {
+  const user = await User.findById(req.user._id).select('-password');
+  res.send(user);
+})
+
+// Create an user
 router.post("/", async function (req, res) {
   // if the user has registered already
   let user = await User.findOne({ email: req.body.email });

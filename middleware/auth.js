@@ -1,3 +1,4 @@
+// This auth is about authorization
 const jwt = require('jsonwebtoken');
 const config = require('config');
 

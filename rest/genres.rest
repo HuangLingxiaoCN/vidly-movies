@@ -42,5 +42,5 @@ Content-Type: application/json
 }
 
 ###
-DELETE http://localhost:8080/api/genres/61927d439653f511cbfaaea1
-
+DELETE http://localhost:8080/api/genres/61a421952a0b1258d11faa45
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWEzZjNiMDhiYTNjMGQwODhlYjM2MDAiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2MzgyMTA0MDR9.Et2k0Ut6iAmVo4RWmzZ7YCsr0OWHYFNsgYzO7iA1YQA
