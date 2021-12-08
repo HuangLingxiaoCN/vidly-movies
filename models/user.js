@@ -25,6 +25,13 @@ const userSchema = mongoose.Schema({
   isAdmin: Boolean
 })
 
+// static method
+userSchema.statics.generateAuthToken = function() {
+  const token = jwt.sign({ _id: this._id, isAdmin: this.isAdmin }, process.env.vidly_jwtPrivateKey);
+  return token;
+}
+
+// instance method
 userSchema.methods.generateAuthToken = function() {
   const token = jwt.sign({ _id: this._id, isAdmin: this.isAdmin }, process.env.vidly_jwtPrivateKey);
   return token;

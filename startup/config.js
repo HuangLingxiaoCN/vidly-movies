@@ -1,3 +1,4 @@
+require('dotenv').config()
 
 module.exports = function() {
   if (!process.env.vidly_jwtPrivateKey) {

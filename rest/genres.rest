@@ -1,6 +1,12 @@
 GET http://localhost:8080/api/genres
 
 ###
+GET http://localhost:8080/api/genres/123
+
+###
+GET http://localhost:8080/api/genres/6195207c785ee4affdff4279
+
+###
 POST http://localhost:8080/api/genres
 Content-Type: application/json
 
@@ -22,6 +28,15 @@ Content-Type: application/json
 
 {
   "name": "Action"
+}
+
+###
+POST http://localhost:8080/api/genres
+Content-Type: application/json
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWE0MjEzNTJhMGIxMjU4ZDExZmFhNDEiLCJpYXQiOjE2MzgxNDYzNTd9._kpjQoIbE1dF6cTPiJoUCrBlqLRL6zillXNZI0-k9G8
+
+{
+  "name": "@"
 }
 
 ###

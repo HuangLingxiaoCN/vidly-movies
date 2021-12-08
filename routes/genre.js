@@ -1,8 +1,10 @@
 const express = require("express");
+const mongoose = require('mongoose')
 const router = express.Router();
 
 const auth = require("../middleware/auth");
 const admin = require("../middleware/admin");
+const validateObjectId = require("../middleware/validateObjectId")
 const { Genre } = require("../models/genre");
 
 // Get all
@@ -12,11 +14,11 @@ router.get("/", async (req, res) => {
 });
 
 // Get one
-router.get("/:id", async function (req, res) {
+router.get("/:id", validateObjectId, async function (req, res) {
   const genre = await Genre.findById(req.params.id);
   if (!genre)
     return res.status(404).send("The genre with given ID was not found.");
-  res.send(genre);
+  res.status(200).send(genre);
 });
 
 // Create one (auth as a middleware function executed before the route handler to authorize the user)
