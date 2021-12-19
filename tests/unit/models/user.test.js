@@ -12,7 +12,6 @@ describe('user.generateAuthToken', () => {
     const user = new User(payload)
     const token = user.generateAuthToken()
     const decoded = jwt.verify(token, process.env.vidly_jwtPrivateKey)
-    console.log(decoded)
     expect(decoded).toMatchObject(payload)
   })
 })

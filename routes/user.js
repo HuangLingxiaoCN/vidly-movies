@@ -7,7 +7,7 @@ const router = express.Router();
 const auth = require('../middleware/auth');
 const { User } = require("../models/user");
 
-// Get an user
+// Get the current user
 router.get('/me', auth, async (req, res) => {
   const user = await User.findById(req.user._id).select('-password');
   res.send(user);
