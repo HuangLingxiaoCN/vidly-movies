@@ -7,10 +7,11 @@ GET http://localhost:8080/api/movies/6195209b785ee4affdff4284
 ###
 POST http://localhost:8080/api/movies
 Content-Type: application/json
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWJmNjI3MzlmZjUyMjM4ZjgyOTFmYTkiLCJpYXQiOjE2Mzk5MzI1Mzh9.u3V6n1eXiSGiLu3m2Xfg0OZ7SVNxFgggycZIXP1dQ9k
 
 {
   "title": "Star Wars",
-  "genreId": "6195207b785ee4affdff4277",
+  "genreId": "61bf60d61e6fea50901a6664",
   "numberInStock": 10,
   "dailyRentalRate": 2
 }
@@ -18,10 +19,11 @@ Content-Type: application/json
 ###
 POST http://localhost:8080/api/movies
 Content-Type: application/json
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWJmNjI3MzlmZjUyMjM4ZjgyOTFmYTkiLCJpYXQiOjE2Mzk5MzI1Mzh9.u3V6n1eXiSGiLu3m2Xfg0OZ7SVNxFgggycZIXP1dQ9k
 
 {
   "title": "Terminator",
-  "genreId": "6195207c785ee4affdff4279",
+  "genreId": "61bf60d71e6fea50901a6665",
   "numberInStock": 8,
   "dailyRentalRate": 4
 }

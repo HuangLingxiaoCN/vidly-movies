@@ -4,6 +4,6 @@ require('dotenv').config()
 module.exports = function() {
   const db = process.env.DATABASE_URL
   mongoose.connect(db)
-    .then(() => console.log(`Connected to ${db}...`))
+    .then(() => console.log(`Connected to mongoDB Atlas...`))
     .catch(err => console.error(err))
 }
