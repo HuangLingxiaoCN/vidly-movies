@@ -4,7 +4,7 @@ const router = express.Router();
 const Fawn = require("fawn");
 const dotenv = require('dotenv').config().parsed;
 
-Fawn.init(dotenv.DATABASE_URL);
+Fawn.init(process.env.db);
 
 const Customer = require("../models/customer");
 const Movie = require("../models/movie");
