@@ -10,4 +10,5 @@ route: 1. /api/genres
        4. /api/rentals
        5. /api/users
        6. /api/auth
+<br />
 example: GET https://immense-refuge-80339.herokuapp.com/api/genres
